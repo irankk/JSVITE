@@ -1,5 +1,5 @@
 import './style.css'
-console.log("hhh")
+//console.log("hhh")
 
 //console.log(typeof 12) 'number'
 // let year = 2010
