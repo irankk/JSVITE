@@ -305,6 +305,8 @@ for (let x=0; x<2; x++) {
   }
 }
 
+// факториал через function
+
 function fact(num: number) : number{
   if (num==0) return 1
   else return num * fact(num - 1)
