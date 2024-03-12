@@ -10,21 +10,21 @@ var a = 2
 console.log(a)
 
 // cоздание переменной
-// let newVar = 5
-// newVar = 15
+let newVar = 5
+newVar = 15
 
-// let noVal
-// noVal = 'g'
-// console.log(noVal)
+let noVal
+noVal = 'g'
+console.log(noVal)
 
-// let theValue
+let theValue
 
 // cоздание константы
-// const DAY_IN_WEEK = 7
+const DAY_IN_WEEK = 7
 // Ошибка не можем изменять константы
 // DAY_IN_WEEK = 8
 
-// const countedSum = a + newVar
+const countedSum = a + newVar
 
 console.log('10 + 5 =', 10+5)
 console.log('10 - 5 =', 10-5)
@@ -33,6 +33,7 @@ console.log('10 / 5 =', 10/5)
 console.log('10 ** 5 =', 10**5) //возведение в степень
 console.log('10 % 5 =', 10%5)   //остаток от деления
 console.log('3 % 2 =', 3%2)   //остаток от деления
+
 
 // let userInput = prompt('Введите число', 10)
 // console.log(userInput)
@@ -80,8 +81,8 @@ console.log(null)
 console.log(typeof null)
 console.log(typeof alert)
 console.log(typeof '')
-// console.log(`В этой строке мы сложим 2 числа ${newVar + 5}. Вот так`)
-// console.log('В этой строке мы сложим 2 числа ' + (newVar+5) + '. Вот так')
+console.log(`В этой строке мы сложим 2 числа ${newVar + 5}. Вот так`)
+console.log('В этой строке мы сложим 2 числа ' + (newVar+5) + '. Вот так')
 
 // В JavaScript есть 8 основных типов данных.
 
@@ -305,12 +306,264 @@ for (let x=0; x<2; x++) {
   }
 }
 
-// факториал через function
+// Вывести # столько раз, сколько указал пользователь.
+let start = 0
+let userInput = 1
+let text = ''
+while (start < userInput) {
+  text = text + '#'
+  start ++
+}
+console.log(text)
 
-function fact(num: number) : number{
-  if (num==0) return 1
-  else return num * fact(num - 1)
+// Пользователь ввел число, а на экран вывелись все числа от введенного до 0
+
+userInput = 10
+text = ''
+while (userInput) {
+  text = text + userInput +'_'
+  userInput--
+}
+console.log(text)
+
+// Запросить число и степень. Возвести число в указанную степень и вывести результат.
+let num = 10
+let count = 3
+let result = 1
+while (count) {
+  result *= num
+  count--
+}
+console.log(result)
+{
+// Запросить 2 числа и найти все общие делители.
+let num1 = 75
+let num2 = 15
+let text = ''
+let min = num1 < num2 ? num1 : num2
+while (min) {
+  if (num1 % min == 0 && num2%min == 0) {
+    text += min + '_'
+  }
+  min--
+}
+console.log(text)
 }
 
-console.log('factorial 5 is:')
-console.log(fact(5))
+let arr = [
+  {i:1, name: '1asdasasd'},
+  {i:2, name: '2asdasasd'},
+  {i:3, name: '3asdasasd'},
+  {i:4, name: '4asdasasd'},
+  {i:5, name: '5asdasasd'},
+]
+
+for (let i=0; i<arr.length; i++) {
+  document.body.insertAdjacentHTML('beforeend', `<p>${arr[i].i} <b>${arr[i].name}</b></p>`)
+}
+
+let res = 1000
+i=0
+while(true) {
+  res/=2
+  i++
+  if (res<50) break
+}
+console.log(res, `за ${i} итераций`)
+
+res = 1000
+i = 0
+while (res>50) {
+  res /= 2
+  i++
+}
+console.log(res, `за ${i} итераций`)
+
+res = 1000
+i = 0
+do {
+  res /= 2
+  i++
+} while (res > 50)
+console.log(res, `за ${i} итераций`)
+
+res = 1000
+i = 0
+for (i = 0; res>50; i++) {
+  res /= 2
+}
+console.log(res, `за ${i} итераций`)
+
+// x+=1  |  x = x + 1
+// x-=1  |  x = x - 1
+// x*=1  |  x = x * 1
+// x**=1 |  x = x ** 1
+// x/=1  |  x = x / 1
+// x%=1  |  x = x % 1
+
+// function имя(параметры) {
+//   ...тело...
+// }
+
+console.log(message)
+function showMessage() {
+  message = 'asfsdfsd'
+  console.log('Всем привет! '+message)
+  // Если функция явно ничего не возвращает, то неявно возвращается undefined
+  // return undefined
+}
+
+console.log(showMessage())
+console.log(message)
+
+// Чистая функция функция не изменяет глобальные значения, а её результат всегда один и тот же при соответствующем значении входных параметров
+// Параметры - это внутренние именованные переменные функции
+// Параметр – это переменная, указанная в круглых скобках в объявлении функции.
+// Аргумент – это значение, которое передаётся функции при её вызове.
+function sum(a:number,b:number) {
+  console.log(a)
+  console.log(b)
+  return a+b
+}
+
+let sumOf2And4 = sum(2,4)
+
+console.log(sumOf2And4)
+
+// Второй параметр b становится не обязательным, а его значение по умолчанию равняется 100
+// Значения по умолчанию устанавливаются для параметров справа на лево
+function max(a:number, b=100) {
+  return a > b ? a : b
+}
+
+console.log(max(101))
+
+function getSum() {
+  let sum = 0
+  // console.log(a)
+  // console.log(arguments)
+  for (let i =0; i<arguments.length; i++ ) {
+    sum += arguments[i]
+  }
+  return sum
+}
+
+// @ts-ignore
+console.log(getSum(1,2,43,55,546543,35,3))
+
+function getSumRest(...rest:number[]) {
+  let sum = 0
+  // console.log(a)
+  console.log(rest)
+  for (let i =0; i<arguments.length; i++ ) {
+    sum += arguments[i]
+  }
+  return sum
+}
+
+console.log(getSumRest(1,2,43,55,546543,35,3))
+
+const string = 'ABC'
+for(let i=0; i<string.length; i++) {
+  console.log(string[i])
+}
+for(let char of string) {
+  console.log(char)
+}
+const array = [1,2,3]
+for(let i=0; i<array.length; i++) {
+  console.log(array[i])
+}
+for(let el of array) {
+  console.log(el)
+}
+const obj = {
+  a:1,
+  b:2,
+  c:3
+} as Record<string, number>
+for(let i=0; i<Object.keys(obj).length; i++) {
+  const key = Object.keys(obj)[i]
+  console.log(key, obj[key])
+}
+for(let key in obj) {
+  console.log(key, obj[key])
+}
+
+function powRecursive(x: number, n: number):number {
+  // return n == 1 ? x : x * powRecursive(x, n - 1)
+  if (n==1) {
+    console.log('Условие выхода стработало')
+    return x
+  } else {
+    console.log(n)
+    let result
+    console.log(result = x * powRecursive(x, n - 1))
+    return result
+  }
+}
+
+console.log(powRecursive(2,4))
+
+// function maxDethPowRecursive(x: number, n: number):number {
+//   console.log(n)
+//   return n == 1 ? x : x * maxDethPowRecursive(x, n - 1)
+// }
+
+// maxDethPowRecursive(1,100000)
+
+function powFor(x: bigint, n: number) {
+  let result = 1n;
+  for (let i = 0; i < n; i++) {
+    result *= x;
+  }
+  return result;
+}
+
+console.log(powFor(2n,100))
+
+// Написать функцию, которая выводит переданное ей число задом наперед.
+// Например: число 1234 вывести как 4321.
+
+function getReverseNumber(n: number):number {
+  if (n<10) {
+    return n
+  } else {
+    return +(n % 10 + '' + getReverseNumber(Math.floor(n/10)))
+  }
+}
+
+console.log(getReverseNumber(1234))
+
+// Написать функцию, которая считает сумму цифр числа.
+// Например: число 1357, сумма 1 + 3 + 5 + 7 = 16.
+
+function getSumOfDigits(n: number): number {
+  if (n < 10) {
+    return n
+  } else {
+    return n % 10 + getSumOfDigits(Math.floor(n / 10))
+  }
+}
+
+console.log(getSumOfDigits(1357))
+
+// Написать функцию, которая принимает число и выводит 
+// соответствующее количество вложенных пар круглых скобок.
+// Например: число 4 – (((())))
+
+
+function getBracketsPairsByNum(n: number): string {
+  if (!n) {
+    return '' 
+  } else {
+    return '(' + getBracketsPairsByNum(n-1) + ')'
+  }
+}
+
+// getBracketsPairsByNum(4) = '(' + getBracketsPairsByNum(3)== '((()))' + ')'     = (((())))
+// getBracketsPairsByNum(3) = '(' + getBracketsPairsByNum(2)== '(())' + ')'       = ((()))
+// getBracketsPairsByNum(2) = '(' + getBracketsPairsByNum(1)== '()' + ')'         = (())
+// getBracketsPairsByNum(1) = '(' + getBracketsPairsByNum(0)== '' + ')'           = ()
+
+console.log(getBracketsPairsByNum(4))
