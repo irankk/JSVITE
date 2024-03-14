@@ -584,3 +584,64 @@ for (let key in obJect) {
   console.log(key)
   console.log(obJect[key])
 }
+
+class Rectangle {
+  def __init__(self, top_left, bottom_right) {
+      self.top_left = top_left
+      self.bottom_right = bottom_right
+  }
+
+  def print_info(self) {
+      print("Верхняя левая точка: {}".format(self.top_left))
+      print("Нижняя правая точка: {}".format(self.bottom_right))
+  }
+
+  def width(self) {
+      return self.bottom_right[0] - self.top_left[0]
+  }
+
+  def height(self) {
+      return self.top_left[1] - self.bottom_right[1]
+  }
+
+  def area(self) {
+      return self.width() * self.height()
+  }
+
+  def perimeter(self) {
+      return 2 * (self.width() + self.height())
+  }
+
+  def change_width(self, delta) {
+      self.bottom_right = (self.bottom_right[0] + delta, self.bottom_right[1])
+  }
+
+  def change_height(self, delta) {
+      self.top_left = (self.top_left[0], self.top_left[1] + delta)
+  }
+
+  def change_width_height(self, delta_width, delta_height) {
+      self.change_width(delta_width)
+      self.change_height(delta_height)
+  }
+
+  def move_x(self, delta) {
+      self.top_left = (self.top_left[0] + delta, self.top_left[1])
+      self.bottom_right = (self.bottom_right[0] + delta, self.bottom_right[1])
+  }
+
+  def move_y(self, delta) {
+      self.top_left = (self.top_left[0], self.top_left[1] + delta)
+      self.bottom_right = (self.bottom_right[0], self.bottom_right[1] + delta)
+  }
+
+  def move_xy(self, delta_x, delta_y) {
+      self.move_x(delta_x)
+      self.move_y(delta_y)
+  }
+
+  def is_point_inside(self, point) {
+      x, y = point
+      return self.top_left[0] <= x <= self.bottom_right[0] ; self.bottom_right[1] <= y <= self.top_left[1]
+  }
+}
