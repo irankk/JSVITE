@@ -49,52 +49,67 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts">
-      class Rectangle:
-          def __init__(self, top_left, bottom_right):
+      
+      class Rectangle {
+          def __init__(self, top_left, bottom_right) {
               self.top_left = top_left
               self.bottom_right = bottom_right
+          }
 
-          def print_info(self):
+          def print_info(self) {
               print("Верхняя левая точка: {}".format(self.top_left))
               print("Нижняя правая точка: {}".format(self.bottom_right))
+          }
 
-          def width(self):
+          def width(self) {
               return self.bottom_right[0] - self.top_left[0]
+          }
 
-          def height(self):
+          def height(self) {
               return self.top_left[1] - self.bottom_right[1]
+          }
 
-          def area(self):
+          def area(self) {
               return self.width() * self.height()
+          }
 
-          def perimeter(self):
+          def perimeter(self) {
               return 2 * (self.width() + self.height())
+          }
 
-          def change_width(self, delta):
+          def change_width(self, delta) {
               self.bottom_right = (self.bottom_right[0] + delta, self.bottom_right[1])
+          }
 
-          def change_height(self, delta):
+          def change_height(self, delta) {
               self.top_left = (self.top_left[0], self.top_left[1] + delta)
+          }
 
-          def change_width_height(self, delta_width, delta_height):
+          def change_width_height(self, delta_width, delta_height) {
               self.change_width(delta_width)
               self.change_height(delta_height)
+          }
 
-          def move_x(self, delta):
+          def move_x(self, delta) {
               self.top_left = (self.top_left[0] + delta, self.top_left[1])
               self.bottom_right = (self.bottom_right[0] + delta, self.bottom_right[1])
+          }
 
-          def move_y(self, delta):
+          def move_y(self, delta) {
               self.top_left = (self.top_left[0], self.top_left[1] + delta)
               self.bottom_right = (self.bottom_right[0], self.bottom_right[1] + delta)
+          }
 
-          def move_xy(self, delta_x, delta_y):
+          def move_xy(self, delta_x, delta_y) {
               self.move_x(delta_x)
               self.move_y(delta_y)
+          }
 
-          def is_point_inside(self, point):
+          def is_point_inside(self, point) {
               x, y = point
-              return self.top_left[0] <= x <= self.bottom_right[0] and self.bottom_right[1] <= y <= self.top_left[1]
+              return self.top_left[0] <= x <= self.bottom_right[0] ; self.bottom_right[1] <= y <= self.top_left[1]
+          }
+      }
     </script>
   </body>
 </html>
