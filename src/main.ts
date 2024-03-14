@@ -567,3 +567,20 @@ function getBracketsPairsByNum(n: number): string {
 // getBracketsPairsByNum(1) = '(' + getBracketsPairsByNum(0)== '' + ')'           = ()
 
 console.log(getBracketsPairsByNum(4))
+
+const obJect = {
+  'a':12,
+  b:2,
+  c:1,
+  1:'asds'
+  // obJ: {
+  //   z:881
+  // }
+  // 'two words': 'dadw',
+} as Record<string, any>
+
+console.log(obJect)
+for (let key in obJect) {
+  console.log(key)
+  console.log(obJect[key])
+}
